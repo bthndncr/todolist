@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
-const config = "+srv://user-batuhan:Batuhan-123@cluster0-rmt4m.mongodb.net"
+const config = "+srv://"+process.env.USER_NAME+":"+process.env.PASSWORD+"@cluster0-rmt4m.mongodb.net"
 
 mongoose.connect("mongodb"+config+"/todolistDB", {useNewUrlParser: true});
 
