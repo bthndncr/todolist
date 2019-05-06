@@ -7,9 +7,6 @@ const _ = require("lodash");
 
 const app = express();
 
-// const items = [];
-// const workItems = [];
-// const holidayItems = [];
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -19,7 +16,7 @@ app.use(express.static("public"));
 const config = "+srv://user-batuhan:Batuhan-123@cluster0-rmt4m.mongodb.net"
 
 mongoose.connect("mongodb"+config+"/todolistDB", {useNewUrlParser: true});
-// mongoose.set('useFindAndModify', false);
+
 
 const itemsSchema = {
   name: String
@@ -135,6 +132,11 @@ app.post("/delete", function(req, res) {
 });
 
 
-app.listen(3000, function() {
-  console.log("Server is running on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, function() {
+  console.log("Server has started Successfully");
 });

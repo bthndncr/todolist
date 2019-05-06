@@ -42,11 +42,6 @@ input:checked+p {
 input[type="checkbox"] {
   margin: 20px;
 }
-/* button.change{
-  border-radius: 30%;
-  background-color:#5588a3;
-  text-align: center;
-} */
 
 p {
   margin: 0;
